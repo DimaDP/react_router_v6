@@ -6,6 +6,7 @@ const Login = () => {
 
     const handleLogin = () => {
         setIsAuth(true);
+        localStorage.setItem('TOKEN', 'some_key');
     };
 
     return (

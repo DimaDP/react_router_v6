@@ -5,7 +5,8 @@ const MainPage = () => {
     const { setIsAuth } = useContext(AuthContext);
 
     const handleLogout = () => {
-        setIsAuth(false)
+        setIsAuth(false);
+        localStorage.removeItem('TOKEN');
     };
 
     return (

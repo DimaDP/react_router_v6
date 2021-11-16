@@ -1,11 +1,19 @@
 import './App.css';
 import MainRouter from './routes/MainRouter';
-import {createContext, useState} from 'react';
+import {createContext, useEffect, useState} from 'react';
 
 export const AuthContext = createContext(null);
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('TOKEN');
+        if (token) {
+            setIsAuth(true);
+        }
+    }, [])
+
   return (
       <AuthContext.Provider value={{ isAuth, setIsAuth }}>
           <div className="App">
